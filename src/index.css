@@ -1,0 +1,27 @@
+.Home1{
+    margin: 20px;
+    padding: 30px;
+}
+.Home1 img{
+
+    width: 100%;
+    border-radius: 5%;
+}
+
+.cardimg{
+    padding: 15px;
+    border-radius: 20%;
+}
+.formregi{
+    width: 50%;
+    padding: 5%;
+}
+
+.ccart{
+    margin-bottom: 0;
+}
+
+
+.footercl{
+    margin-bottom: 0;
+}
