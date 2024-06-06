@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom'; 
 
 function Signup() {
+  const navigate = useNavigate(); 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -10,7 +12,8 @@ function Signup() {
   const handleRegister = (e) => {
     e.preventDefault();
     localStorage.setItem('registrationData', JSON.stringify({ name, email, password }));
-  alert("Register Sucessfully")
+    alert("Registered Successfully");
+    navigate('/login'); 
   };
 
   return (
@@ -24,7 +27,7 @@ function Signup() {
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
+          Don't share your email with anyone
         </Form.Text>
       </Form.Group>
 
@@ -41,9 +44,6 @@ function Signup() {
         Register
       </Button>
 
-      <Button variant="primary" type="button" className='m-3' onClick={() => console.log(localStorage.getItem('registrationData'))}>
-        Login
-      </Button>
     </Form>
   );
 }

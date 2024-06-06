@@ -20,10 +20,10 @@ function Footer() {
           <div className="col-md-2 mb-4">
             <h6 className="text-uppercase mb-3">Products</h6>
             <ul className="list-unstyled">
-              <li><Link to="#" className="text-white">Privacy</Link></li>
-              <li><Link to="#" className="text-white">Contact</Link></li>
-              <li><Link to="#" className="text-white">Home</Link></li>
-              <li><Link to="#" className="text-white">Bootstrap Angular</Link></li>
+              <li><Link to="/Privacy" className="text-white">Privacy</Link></li>
+              <li><Link to="/Contact" className="text-white">Contact</Link></li>
+              <li><Link to="/Home" className="text-white">Home</Link></li>
+              <li><Link to="/About" className="text-white">About Us</Link></li>
             </ul>
           </div>
 
