@@ -1,20 +1,52 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import React, { useState, useEffect } from 'react';
 
-function Card() {
+function Cards() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = [
+    "https://source.unsplash.com/random/800x150?sig=1",
+    "https://source.unsplash.com/random/800x150?sig=2",
+    "https://source.unsplash.com/random/800x150?sig=3"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const handlePrevImage = () => {
+    setCurrentImage((prevImage) => (prevImage - 1 + images.length) % images.length);
+  };
+
+  const handleNextImage = () => {
+    setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+  };
+
+  const handleDotClick = (index) => {
+    setCurrentImage(index);
+  };
+
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-  );
+    <div>
+      <div className='Home1'>
+        <img src={images[currentImage]} alt="slideshow" />
+        <button onClick={handlePrevImage} className='prevButton'>Previous</button>
+        <button onClick={handleNextImage} className='nextButton'>Next</button>
+        <div className='dots'>
+          {images.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${currentImage === index ? 'active' : ''}`}
+              onClick={() => handleDotClick(index)}
+            ></span>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 }
 
-export default Card;
+export default Cards;

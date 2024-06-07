@@ -1,7 +1,5 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Container, Image } from 'react-bootstrap';
 
 function Contact() {
   const [imageSrc, setImageSrc] = useState('');
@@ -15,16 +13,15 @@ function Contact() {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchRandomImage();
   }, []);
 
   return (
-    <Container>
+    <Container className="contact-container">
       <h1>Contact</h1>
       <p>My name is Krishna Nikam.</p>
       <p>You can contact me at: 7020542266</p>
-      
       {imageSrc && <Image src={imageSrc} alt="Random Image" fluid />}
     </Container>
   );
