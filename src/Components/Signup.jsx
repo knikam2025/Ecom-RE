@@ -11,7 +11,7 @@ function Signup() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    localStorage.setItem('registrationData', JSON.stringify({ name, email, password }));
+    localStorage.setItem('registrationData', JSON.stringify({ame, email, password }));
     alert("Registered Successfully");
     navigate('/login'); 
   };
