@@ -5,12 +5,9 @@ function Home() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    "https://source.unsplash.com/random/800x150?sig=1",
-    "https://source.unsplash.com/random/800x150?sig=2",
-    "https://source.unsplash.com/random/800x150?sig=3",
-    "https://source.unsplash.com/random/800x150?sig=4",
-    "https://source.unsplash.com/random/800x150?sig=5",
-    "https://source.unsplash.com/random/800x150?sig=6"
+    "img1.jpg",
+    "img3.jpg",
+    "img2.jpg"
   ];
 
   useEffect(() => {
@@ -36,7 +33,7 @@ function Home() {
   return (
     <Container>
       <div className="home-slideshow">
-        <img src={images[currentImage]} alt="slideshow" className="slideshow-image" />
+        <img src={images[currentImage]} alt="slideshow" className="slideshow-image" style={{width:"100%", height:"200px"}} />
         <Button onClick={handlePrevImage} className="prev-button">Previous</Button>
         <Button onClick={handleNextImage} className="next-button">Next</Button>
         <div className="dots">
@@ -51,7 +48,7 @@ function Home() {
       </div>
       <Row className="mt-4">
         <Col md={6}>
-          <img src="https://source.unsplash.com/random/400x300?ebike&sig=1" alt="e-bike" className="content-image" />
+          <img src="bike1.jpg" alt="e-bike" className="content-image" />
         </Col>
         <Col md={6} className="d-flex flex-column justify-content-center">
           <h2>Why Choose E-Bikes?</h2>
@@ -66,12 +63,12 @@ function Home() {
           <p>With the growing concerns about climate change, adopting e-bikes for daily commutes and errands is a step towards a sustainable future.</p>
         </Col>
         <Col md={6}>
-          <img src="https://source.unsplash.com/random/400x300?environment&sig=2" alt="environment" className="content-image" />
+          <img src="bike2.jpg" alt="environment" className="content-image" />
         </Col>
       </Row>
       <Row className="mt-4">
         <Col md={6}>
-          <img src="https://source.unsplash.com/random/400x300?cycle&sig=3" alt="cycle" className="content-image" />
+          <img src="bike3.jpg" alt="cycle" className="content-image" />
         </Col>
         <Col md={6} className="d-flex flex-column justify-content-center">
           <h2>Save the Earth</h2>
@@ -87,12 +84,12 @@ function Home() {
           <p>Regular cycling also boosts mental health by reducing stress levels and promoting a sense of well-being.</p>
         </Col>
         <Col md={6}>
-          <img src="https://source.unsplash.com/random/400x300?health&sig=4" alt="health benefits" className="content-image" />
+          <img src="bike4.jpg" alt="health benefits" className="content-image" />
         </Col>
       </Row>
       <Row className="mt-4">
         <Col md={6}>
-          <img src="https://source.unsplash.com/random/400x300?savings&sig=5" alt="cost savings" className="content-image" />
+          <img src="bike5.jpg" alt="cost savings" className="content-image" />
         </Col>
         <Col md={6} className="d-flex flex-column justify-content-center">
           <h2>Cost Savings</h2>
@@ -107,7 +104,7 @@ function Home() {
           <p>Whether you're commuting to work, running errands, or exploring new places, e-bikes offer unparalleled convenience and freedom.</p>
         </Col>
         <Col md={6}>
-          <img src="https://source.unsplash.com/random/400x300?convenience&sig=6" alt="convenience" className="content-image" />
+          <img src="bike1.jpg" alt="convenience" className="content-image" />
         </Col>
       </Row>
     </Container>

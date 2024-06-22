@@ -1,5 +1,6 @@
-/* home css */
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .Home1 {
     margin: 20px;

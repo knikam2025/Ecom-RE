@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import products from './../Api/data';
 import Cycle from './Cycle';
 import Cards from './SmallCompo/Cards';
@@ -60,65 +58,85 @@ function Product() {
   return (
     <>
       <Cards />
-      <div className="product-container">
-        <div className={`sidebar ${showSidebar ? 'show' : ''}`}>
-          <div className="filter-container">
-            <h3>Filters</h3>
-            <div className="filter-item">
-              <label>Min Price</label>
+      <div className="container mx-auto">
+        <div className={`fixed inset-0 z-50 bg-white transform ${showSidebar ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300`}>
+          <div className="p-4">
+            <h3 className="text-lg font-semibold mb-4">Filters</h3>
+            <div className="mb-4">
+              <label className="block text-gray-700">Min Price</label>
               <input 
                 type="number" 
                 name="minPrice" 
                 value={filters.minPrice} 
                 onChange={handleFilterChange} 
                 min="0" 
-                className="form-control" // Add Bootstrap class for styling
+                className="w-full p-2 border rounded"
               />
             </div>
-            <div className="filter-item">
-              <label>Max Price</label>
+            <div className="mb-4">
+              <label className="block text-gray-700">Max Price</label>
               <input 
                 type="number" 
                 name="maxPrice" 
                 value={filters.maxPrice} 
                 onChange={handleFilterChange} 
                 min="0" 
-                className="form-control" // Add Bootstrap class for styling
+                className="w-full p-2 border rounded"
               />
             </div>
-            <div className="filter-item">
-              <label>Keyword</label>
+            <div className="mb-4">
+              <label className="block text-gray-700">Keyword</label>
               <input 
                 type="text" 
                 name="keyword" 
                 value={filters.keyword} 
                 onChange={handleFilterChange} 
-                className="form-control" // Add Bootstrap class for styling
+                className="w-full p-2 border rounded"
               />
             </div>
           </div>
         </div>
-        <Button className="toggle-button" onClick={() => setShowSidebar(!showSidebar)}>
+        <button 
+          className="fixed top-4 left-4 z-50 p-2 bg-blue-500 text-white rounded-full"
+          onClick={() => setShowSidebar(!showSidebar)}
+        >
           <i className="fas fa-filter"></i>
-        </Button>
-        <div className="d-flex justify-content-between align-items-center">
-          <Button onClick={handlePrev} disabled={currentIndex === 0}>&lt; Previous</Button>
-          <div className="d-flex flex-wrap justify-content-center product-row">
+        </button>
+        <div className="flex justify-between items-center mt-8">
+          <button 
+            onClick={handlePrev} 
+            disabled={currentIndex === 0}
+            className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
+          >
+            &lt; Previous
+          </button>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {displayedProducts.map(item => (
-              <Card key={item.id} className="product-card">
-                <div className="img-container">
-                  <Card.Img variant="top" className="cardimg" src={item.image} />
+              <div key={item.id} className="bg-white p-4 rounded-lg shadow-md">
+                <div className="overflow-hidden rounded-lg">
+                  <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
                 </div>
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>{item.description}</Card.Text>
-                  <Card.Text>&#x20B9;{item.price}</Card.Text>
-                  <Button variant="primary" onClick={() => handleBuy(item)}>Buy</Button>
-                </Card.Body>
-              </Card>
+                <div className="mt-4">
+                  <h5 className="text-lg font-semibold">{item.title}</h5>
+                  <p className="text-gray-700">{item.description}</p>
+                  <p className="text-gray-900 font-bold">&#x20B9;{item.price}</p>
+                  <button 
+                    className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
+                    onClick={() => handleBuy(item)}
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
-          <Button onClick={handleNext} disabled={currentIndex + itemsPerPage >= filteredProducts.length}>Next &gt;</Button>
+          <button 
+            onClick={handleNext} 
+            disabled={currentIndex + itemsPerPage >= filteredProducts.length}
+            className="px-4 py-2 bg-gray-200 text-gray-800 rounded disabled:opacity-50"
+          >
+            Next &gt;
+          </button>
         </div>
       </div>
 

@@ -17,6 +17,8 @@ import Contact from './Components/FooterPages/Contact';
 function App() {
   return (
     <>
+
+    
       <Router>
         <Header />
         <Routes>
@@ -35,6 +37,8 @@ function App() {
         </Routes>
         <Footer />
       </Router>
+
+
     </>
   );
 }
